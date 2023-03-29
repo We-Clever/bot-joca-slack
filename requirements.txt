@@ -3,3 +3,4 @@ python-dotenv
 ezsheets
 pandas
 fuzz
+slackclient
