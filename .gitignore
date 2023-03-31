@@ -1,1 +1,6 @@
 .env
+.pickle
+token-drive.pickle
+.gitignore
+token-sheets.pickle
+joca-346417-f65e75efdc88.json

@@ -1,4 +1,4 @@
-slack
+slackclient
 python-dotenv
 ezsheets
 pandas

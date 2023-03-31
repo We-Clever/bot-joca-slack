@@ -6,15 +6,15 @@ import ezsheets
 import pandas as pd
 from thefuzz import fuzz
 from thefuzz import process
-a = ezsheets.Spreadsheet('1lsWjqyXoxkOdwP6fUjOLtduUsawvLviBR3D8wg9ihtA')
-ss = a[0]
 
-df = pd.DataFrame(ss)
-a = df.index[df[0] == ''].tolist()
-c = df.index[df[1] == ''].tolist()
 # add to a loop
 def write_on_cell(m,time_n,conversation_history,n_row):
+    a = ezsheets.Spreadsheet('1v1t54EwudfjkB8arbIPrLSlLhjwXBZCdQH25LDGim8E')
+    ss = a[0]
 
+    df = pd.DataFrame(ss)
+    a = df.index[df[0] == ''].tolist()
+    c = df.index[df[1] == ''].tolist()
     b = a[n_row]
     d = c[n_row]
     # add to the right columns
@@ -42,12 +42,12 @@ def write_on_cell(m,time_n,conversation_history,n_row):
                 'Redefinir senha',
                 'VPn não abre',
                 'Problema no dashboard']
-    choice = process.extractOne(conversation_history['text'], all_cases)
-    print('Essa eh a opcao escolhida, gostaria de escolher outra ? ' + choice[0])
+    # choice = process.extractOne(conversation_history['text'], all_cases)
+    # print('Essa eh a opcao escolhida, gostaria de escolher outra ? ' + choice[0])
     opc = str(input('y/n >>>'))
     ss[data] = time_n
     if (opc == 'y'):
         new_line = str(input('nova opcao >>>'))
         ss[mensagem] = new_line
     elif (opc == 'n'):
-        ss[mensagem] = choice[0]
+        ss[mensagem] = "teste"
