@@ -9,7 +9,7 @@ from thefuzz import process
 
 # add to a loop
 def write_on_cell(m,time_n,conversation_history,n_row):
-    a = ezsheets.Spreadsheet('1v1t54EwudfjkB8arbIPrLSlLhjwXBZCdQH25LDGim8E')
+    a = ezsheets.Spreadsheet('1_PiEQF3ugQ3h_-XvrKO_9ACeQiIAD1SWZ-RS73uyYlI')
     ss = a[0]
 
     df = pd.DataFrame(ss)
@@ -25,7 +25,10 @@ def write_on_cell(m,time_n,conversation_history,n_row):
 
     ss[nome] = m['real_name']
     
-    all_cases = ['Zap Guru não está enviando as mensagens',
+    all_cases = [
+                'excluir id',
+                'eviar csat',
+                'Zap Guru não está enviando as mensagens',
                 'Adicionar número de telefone no ID',
                 'Excluir conversão',
                 'Excluir recusa',
@@ -42,12 +45,12 @@ def write_on_cell(m,time_n,conversation_history,n_row):
                 'Redefinir senha',
                 'VPn não abre',
                 'Problema no dashboard']
-    # choice = process.extractOne(conversation_history['text'], all_cases)
-    # print('Essa eh a opcao escolhida, gostaria de escolher outra ? ' + choice[0])
+    choice = process.extractOne(conversation_history['text'], all_cases)
+    print('Opcao ?\n ' + choice[0])
     opc = str(input('y/n >>>'))
     ss[data] = time_n
     if (opc == 'y'):
         new_line = str(input('nova opcao >>>'))
         ss[mensagem] = new_line
     elif (opc == 'n'):
-        ss[mensagem] = "teste"
+        ss[mensagem] = choice[0]
